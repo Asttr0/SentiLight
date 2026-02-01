@@ -1,0 +1,7 @@
+# ========================
+# SENTILIGHT VIP LIST
+# ========================
+# Localhost (The Server itself)
+
+
+# Add your home IP here if needed (below)

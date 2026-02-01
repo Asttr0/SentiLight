@@ -1,0 +1,15 @@
+# Ignore the compiled executable
+sentilight
+
+# Ignore logs (never upload logs!)
+*.log
+sentilight.log
+
+# Ignore system files
+.DS_Store
+Thumbs.db
+.vscode/
+*.o
+
+# Ignore local whitelist (optional, but safer to keep personal IPs off GitHub)
+whitelist.txt

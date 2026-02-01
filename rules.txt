@@ -1,0 +1,104 @@
+# ==========================================
+# SENTILIGHT  RULESET v1.0
+#  High Security Mode
+# ==========================================
+
+# --- 1. ADVANCED SQL INJECTION (SQLi) ---
+# Classic Union based
+union\s+(all\s+)?select
+# Time-based blind injection (MySQL, PostgreSQL, MSSQL)
+(sleep|benchmark|pg_sleep|waitfor\s+delay)\s*\(
+# Boolean-based blind logic (OR 1=1 variants)
+\s+(or|and|xor)\s+['"]?1['"]?\s*=\s*['"]?1
+# Comment truncation attacks (#, --)
+--;\s*$|#\s*$
+# Stacked queries (ending statement with ;)
+;\s*(DROP|INSERT|UPDATE|DELETE|ALTER)\s
+# ExtractValue (Error-based SQLi)
+extractvalue\s*\(
+# Hex encoded payloads (0x...)
+0x[0-9a-fA-F]{4,}
+# Information Schema probing
+information_schema\.(tables|columns)
+
+# --- 2. XSS (Cross Site Scripting) ---
+# Standard Script tags (case insensitive handled by code)
+<script.*?>
+# Event Handlers (catch-all for onerror, onload, onmouseover, etc.)
+\son[a-z]+\s*=
+# Javascript Pseudo-protocol
+javascript:\s*
+# SVG/XML XSS vectors
+<svg[^>]*>
+# Iframe injection
+<iframe.*?>
+# Data URI usage
+data:text/html;base64
+
+# --- 3. REMOTE CODE EXECUTION (RCE) ---
+# Chaining commands with pipes or ampersands
+[;&|]\s*(cat|nc|netcat|wget|curl|ping|whoami|id|uname|tail|head)
+# PHP Execution functions
+(system|exec|passthru|shell_exec|phpinfo|proc_open|popen)\s*\(
+# Python/Perl/Ruby execution
+(import\s+os|import\s+sys|subprocess\.call)
+# Base64 decoding (often used to hide payloads)
+base64_decode\s*\(
+# Backticks execution (PHP/Shell)
+`.*`
+
+# --- 4. LFI & PATH TRAVERSAL ---
+# Dot-dot-slash (standard and backslash)
+\.\.(\/|\\)
+# Null byte poisoning
+%00
+# Sensitive Linux paths
+/etc/(passwd|shadow|hosts|issue|group|crontab)
+# Sensitive Windows paths
+(boot\.ini|win\.ini|windows\\system32)
+# ProcFS access (Container/Linux recon)
+/proc/(self|all|net)/
+
+# --- 5. SSTI (Server Side Template Injection) ---
+# Jinja2 / Django / Flask / Angular
+\{\{.*\}\}
+# Spring / Java EL
+\$\{.*\}
+# ERB (Ruby)
+<%=.*%>
+
+# --- 6. XML ATTACKS (XXE) ---
+# DTD Declaration
+<!DOCTYPE\s+
+# Entity Declaration (stealing files)
+<!ENTITY\s+
+
+# --- 7. CLOUD METADATA THEFT (SSRF) ---
+# AWS / GCP / Azure Instance Metadata IP
+169\.254\.169\.254
+# Docker Internal Network
+172\.17\.0\.\d+
+# Kubernetes Service Token
+/var/run/secrets/kubernetes
+
+# --- 8. RECONNAISSANCE & SENSITIVE FILES ---
+# Environment files
+\.env
+# Git/SVN Repos
+\.git/|\.svn/
+# SSH Keys
+\.ssh/
+# WordPress Config
+wp-config\.php
+# Apache/Nginx Configs
+\.htaccess|\.htpasswd|nginx\.conf
+# Backup files
+\.(bak|old|swp|backup)$
+
+# --- 9. PROTOCOL ATTACKS ---
+# HTTP Response Splitting
+%0d%0a
+# LDAP Injection
+\(\|.*\)|\(&.*\)
+# NoSQL Injection (MongoDB)
+(\$ne|\$gt|\$lt|\$where|\$exists)
