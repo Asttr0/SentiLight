@@ -17,13 +17,13 @@ It is designed to sit in front of your backend server (Python, Node.js, Apache, 
 
 ##  Key Features
 
-### 🧠 Intelligent Threat Detection
+###  Intelligent Threat Detection
 * **Advanced Regex Engine:** Utilizes the "Titanium Ruleset" to detect complex attacks like **SQL Injection (SQLi)**, **Cross-Site Scripting (XSS)**, **Remote Code Execution (RCE)**, and **LFI**.
 * **Entropy Analysis:** Uses Shannon Entropy mathematics to detect and block obfuscated payloads (e.g., Base64 or Hex hidden shells).
 * **Anti-Evasion:** Automatically URL-decodes payloads (e.g., `%27 OR 1=1`) to prevent bypass attempts.
 * **Protocol Enforcement:** Enforces a "Zero Trust" policy, strictly allowing only `GET` and `POST` methods.
 
-### 🛡️ Active Defense System
+###  Active Defense System
 * **DoS Mitigation:** Integrated **Rate Limiting** bans IPs that exceed 10 requests/second.
 * **IP Blacklisting (The Jail):** Automatically bans repeat offenders for 5 minutes after 3 strikes.
 * **The "Bouncer":** Identifies and blocks automated scanning tools (`sqlmap`, `Nikto`, `Hydra`) via User-Agent fingerprinting.
@@ -55,7 +55,7 @@ Sentilight includes a Makefile for one-command compilation.
 make
 ```
 
-## 💻 Usage
+##  Usage
 Start the WAF on port 8080. It will forward safe traffic to your backend (default: port 9000).
 ```bash
 ./sentilight --port 8080
@@ -89,7 +89,7 @@ Add trusted IPs here (one per line) to bypass the WAF entirely.
 192.xxx.x.xx
 ``` 
 
-## 🧪 Testing the Defenses
+##  Testing the Defenses
 ou can verify the WAF is working using curl:
 
 ### 1. Test SQL Injection Block:
