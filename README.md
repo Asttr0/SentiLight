@@ -15,6 +15,22 @@ It is designed to sit in front of your backend server (Python, Node.js, Apache, 
 
 ---
 
+## 📸 Gallery
+
+**1. The Interface**
+![Startup](screenshots/senti_banner.png)
+
+**2. Blocking SQL Injection (Signature Detection)**
+![SQLi Block](screenshots/sqli_block.png)
+
+**3. Stopping a DoS Attack (Rate Limiting)**
+![DoS Ban](screenshots/Dos_ban.png)
+
+**4. Real-Time Admin Stats**
+![Stats](screenshots/stats.png)
+
+---
+
 ##  Key Features
 
 ### 🧠 Intelligent Threat Detection
