@@ -36,7 +36,7 @@ It is designed to sit in front of your backend server (Python, Node.js, Apache, 
 
 ---
 
-## 🛠️ Installation & Build
+##  Installation & Build
 
 ### Prerequisites
 * **Linux/Unix** environment (Kali, Ubuntu, MacOS).
@@ -69,7 +69,7 @@ Flag	Description
 --help	Show the help menu.
 ``` 
 
-## ⚙️ Configuration 
+##  Configuration 
 
 ### 1. Blocking Rules (rules.txt) :
    
@@ -114,7 +114,7 @@ curl -H "x-admin-key: secret123" http://localhost:8080/sentilight-stats
 
 Sentilight is intended for educational and defensive purposes only. Do not use this tool to protect critical infrastructure without proper testing. The author is not responsible for any misuse of this software.
 
-## 🤝 Contributing
+##  Contributing
 
 Pull requests are welcome! For major changes, please open an issue first to discuss what you would like to change.
 ## 
