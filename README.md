@@ -115,5 +115,5 @@ Sentilight is intended for educational and defensive purposes only. Do not use t
 ## 🤝 Contributing
 
 Pull requests are welcome! For major changes, please open an issue first to discuss what you would like to change.
-
+## 
 Created with ❤️ by Asttr0
