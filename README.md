@@ -29,7 +29,7 @@ It is designed to sit in front of your backend server (Python, Node.js, Apache, 
 * **The "Bouncer":** Identifies and blocks automated scanning tools (`sqlmap`, `Nikto`, `Hydra`) via User-Agent fingerprinting.
 * **Honeypot Mode:** Can serve fake vulnerability data to deceive attackers and waste their time (`--honey` flag).
 
-### 👁️ Observability & Control
+###  Observability & Control
 * **DLP (Data Loss Prevention):** Scans outgoing server responses to censor sensitive data leaks (e.g., `root:x:0:0`, SQL syntax errors).
 * **VIP Whitelisting:** Trusted IPs in `whitelist.txt` bypass all security checks for administrative access.
 * **Live Stats Dashboard:** Real-time JSON monitoring via the secured `/sentilight-stats` endpoint.
