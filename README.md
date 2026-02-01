@@ -49,49 +49,54 @@ git clone [https://github.com/Asttr0/SentiLight.git](https://github.com/Asttr0/S
 cd SentiLight
 ```
 
-2. Compile
+### 2. Compile
 Sentilight includes a Makefile for one-command compilation.
 ```bash
 make
 ```
 
-💻 Usage :
+## 💻 Usage
 Start the WAF on port 8080. It will forward safe traffic to your backend (default: port 9000).
 ```bash
 ./sentilight --port 8080
 ```
-Command Line Options
+Command Line Options :
+
 Flag	Description
 --port <p>	Set the listening port (Default: 8080).
 --honey	Activate Honeypot Mode (Returns fake errors instead of 403 blocks).
 --help	Show the help menu.
 
-⚙️ Configuration 
+## ⚙️ Configuration 
 
-1. Blocking Rules (rules.txt) :
+### 1. Blocking Rules (rules.txt) :
    
 Sentilight hot-loads security rules from this file. It supports standard Regex.
-# Example Rules
+ Example Rules :
+ ```bash
 union\s+select      # Block SQLi
 <script>            # Block XSS
 /etc/passwd         # Block LFI
+``` 
 
-2. Whitelist (whitelist.txt) :
+### 2. Whitelist (whitelist.txt) :
   
 Add trusted IPs here (one per line) to bypass the WAF entirely.
+```bash
 127.0.0.1
 192.xxx.x.xx
+``` 
 
-🧪 Testing the Defenses
+## 🧪 Testing the Defenses
 ou can verify the WAF is working using curl:
 
-1. Test SQL Injection Block:
+### 1. Test SQL Injection Block:
 
 ```bash
 curl "http://localhost:8080/search?q=UNION+SELECT"
 # Output: HTTP 403 Forbidden [SENTILIGHT] Access Denied.
 ```
-2. Test DoS Protection (Rate Limit):
+### 2. Test DoS Protection (Rate Limit):
 
   ```bash 
 for i in {1..15}; do curl -s "http://localhost:8080/" > /dev/null; done
@@ -103,11 +108,11 @@ Bash
 curl -H "x-admin-key: secret123" http://localhost:8080/sentilight-stats
 ```
 
-⚠️ Disclaimer
+## ⚠️ Disclaimer
 
 Sentilight is intended for educational and defensive purposes only. Do not use this tool to protect critical infrastructure without proper testing. The author is not responsible for any misuse of this software.
 
-🤝 Contributing
+## 🤝 Contributing
 
 Pull requests are welcome! For major changes, please open an issue first to discuss what you would like to change.
 
