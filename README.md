@@ -45,60 +45,55 @@ It is designed to sit in front of your backend server (Python, Node.js, Apache, 
 
 ### 1. Clone the Repository
 ```bash
-git clone [https://github.com/YOUR_USERNAME/Sentilight-WAF.git](https://github.com/YOUR_USERNAME/Sentilight-WAF.git)
-cd Sentilight-WAF
+git clone [https://github.com/Asttr0/SentiLight.git](https://github.com/Asttr0/SentiLight.git)
+cd SentiLight
+```
 
 2. Compile
-
 Sentilight includes a Makefile for one-command compilation.
-Bash
-
+```bash
 make
+```
 
-💻 Usage
-
+💻 Usage :
 Start the WAF on port 8080. It will forward safe traffic to your backend (default: port 9000).
-Bash
-
+```bash
 ./sentilight --port 8080
-
+```
 Command Line Options
 Flag	Description
 --port <p>	Set the listening port (Default: 8080).
 --honey	Activate Honeypot Mode (Returns fake errors instead of 403 blocks).
 --help	Show the help menu.
-⚙️ Configuration
-1. Blocking Rules (rules.txt)
 
+⚙️ Configuration 
+
+1. Blocking Rules (rules.txt) :
+   
 Sentilight hot-loads security rules from this file. It supports standard Regex.
-Plaintext
-
 # Example Rules
 union\s+select      # Block SQLi
 <script>            # Block XSS
 /etc/passwd         # Block LFI
 
-2. Whitelist (whitelist.txt)
-
+2. Whitelist (whitelist.txt) :
+  
 Add trusted IPs here (one per line) to bypass the WAF entirely.
-Plaintext
-
 127.0.0.1
-192.168.1.50
+192.xxx.x.xx
 
 🧪 Testing the Defenses
-
-You can verify the WAF is working using curl:
+ou can verify the WAF is working using curl:
 
 1. Test SQL Injection Block:
-Bash
 
+```bash
 curl "http://localhost:8080/search?q=UNION+SELECT"
 # Output: HTTP 403 Forbidden [SENTILIGHT] Access Denied.
-
+```
 2. Test DoS Protection (Rate Limit):
-Bash
 
+  ```bash 
 for i in {1..15}; do curl -s "http://localhost:8080/" > /dev/null; done
 # Output: [DoS DETECTED] High traffic from 127.0.0.1 - BANNING NOW!
 
@@ -106,10 +101,12 @@ for i in {1..15}; do curl -s "http://localhost:8080/" > /dev/null; done
 Bash
 
 curl -H "x-admin-key: secret123" http://localhost:8080/sentilight-stats
+```
 
 ⚠️ Disclaimer
 
 Sentilight is intended for educational and defensive purposes only. Do not use this tool to protect critical infrastructure without proper testing. The author is not responsible for any misuse of this software.
+
 🤝 Contributing
 
 Pull requests are welcome! For major changes, please open an issue first to discuss what you would like to change.
