@@ -63,9 +63,11 @@ Start the WAF on port 8080. It will forward safe traffic to your backend (defaul
 Command Line Options :
 
 Flag	Description
+```bash
 --port <p>	Set the listening port (Default: 8080).
 --honey	Activate Honeypot Mode (Returns fake errors instead of 403 blocks).
 --help	Show the help menu.
+``` 
 
 ## ⚙️ Configuration 
 
