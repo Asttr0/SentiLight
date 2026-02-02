@@ -15,7 +15,7 @@ It is designed to sit in front of your backend server (Python, Node.js, Apache, 
 
 ---
 
-## 📸 Gallery
+##  Demo
 
 **1. The Interface**
 ![Startup](screenshots/senti_banner.png)
