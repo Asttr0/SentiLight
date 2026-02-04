@@ -1,7 +1,7 @@
 # Ignore the compiled executable
 sentilight
 
-# Ignore logs (never upload logs!)
+# Ignore logs 
 *.log
 sentilight.log
 
@@ -11,5 +11,5 @@ Thumbs.db
 .vscode/
 *.o
 
-# Ignore local whitelist (optional, but safer to keep personal IPs off GitHub)
+# Ignore local whitelist
 whitelist.txt
