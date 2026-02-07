@@ -119,10 +119,9 @@ curl "http://localhost:8080/search?q=UNION+SELECT"
   ```bash 
 for i in {1..15}; do curl -s "http://localhost:8080/" > /dev/null; done
 # Output: [DoS DETECTED] High traffic from 127.0.0.1 - BANNING NOW!
-
-3. Access Live Stats (Requires Key):
-Bash
-
+```
+### 3. Access Live Stats (Requires Key):
+```bash
 curl -H "x-admin-key: secret123" http://localhost:8080/sentilight-stats
 ```
 
