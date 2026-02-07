@@ -61,7 +61,7 @@ It is designed to sit in front of your backend server (Python, Node.js, Apache, 
 
 ### 1. Clone the Repository
 ```bash
-git clone [https://github.com/Asttr0/SentiLight.git](https://github.com/Asttr0/SentiLight.git)
+git clone https://github.com/Asttr0/SentiLight.git
 cd SentiLight
 ```
 
