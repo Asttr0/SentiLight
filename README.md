@@ -9,7 +9,7 @@
 ---
 
 ## 📖 Overview
-**Sentilight** is a lightweight, high-performance **Web Application Firewall (WAF)** built entirely from scratch in C++. Unlike standard WAFs that rely on heavy frameworks, Sentilight operates as a **Reverse Proxy** using raw POSIX sockets, providing granular control over every byte of traffic.
+**Sentilight** is a lightweight, high-performance **Web Application Firewall (WAF)** built entirely from scratch in C++. Unlike standard WAFs that rely on heavy frameworks, Sentilight operates as a **Reverse Proxy** using raw POSIX sockets, providing granular control over every byte of traffic
 
 It is designed to sit in front of your backend server (Python, Node.js, Apache, etc.) and filter incoming traffic in real-time, neutralizing threats before they ever reach your application.
 
